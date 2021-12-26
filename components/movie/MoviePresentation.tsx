@@ -8,7 +8,6 @@ interface MoviePresentationProps {
 
 export const MoviePresentation = ({ movie }: MoviePresentationProps) => {
     const movieDate = new Date(movie?.release_date);
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return (
         <div>
             <div>
@@ -21,7 +20,6 @@ export const MoviePresentation = ({ movie }: MoviePresentationProps) => {
             <div className="mt-3">
                 <span className="text-slate-500 mr-3">{movie.runtime}min</span>
                 <span className="mr-3">{movie.genres.map(genre => genre.name).join(", ")}</span>
-                <span className="text-slate-500">Release {movieDate.toLocaleDateString(undefined, options)}</span>
             </div>
             <div className="mt-5">
                 <div className="md:grid md:grid-cols-3 md:grid-flow-col">

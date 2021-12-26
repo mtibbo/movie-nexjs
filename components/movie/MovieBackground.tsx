@@ -6,7 +6,7 @@ interface MovieBackgroundProps {
 
 const getYoutubeVideoSrc = (key: string) => `https://www.youtube.com/embed/${key}?showinfo=0`;
 
-const getRandomYoutubeVideo = (videos: Result[]) => getYoutubeVideoSrc(videos.find((v) => v.key)?.key)
+const getRandomYoutubeVideo = (videos: Result[]) => getYoutubeVideoSrc(videos[0]?.key)
 
 
 export const MovieBackground = ({ videos }: MovieBackgroundProps) => (

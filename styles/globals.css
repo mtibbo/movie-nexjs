@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~rc-tabs/assets/index.css';
+
 html,
 body {
   padding: 0;
@@ -13,4 +19,51 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+footer {
+  @apply p-10 justify-center bg-slate-700 text-white flex text-2xl font-medium;
+}
+
+.rc-tabs {
+  border: none;
+}
+
+.rc-tabs-tabpane {
+  @apply bg-slate-50;
+}
+
+.rc-tabs-nav {
+  @apply container mx-auto px-4;
+}
+
+.rc-tabs-tabpane-active::after {
+  height: 3px;
+  @apply bg-slate-400;
+}
+
+.rc-tabs-tab {
+  @apply mr-5 text-base font-medium text-slate-400 bg-transparent;
+}
+
+.rc-tabs-tab.rc-tabs-tab-active {
+  @apply text-amber-400;
+}
+
+.rc-tabs-ink-bar {
+  position: absolute;
+  @apply bg-amber-400;
+  pointer-events: none;
+}
+
+.rc-tabs-tab-btn {
+  line-height: 70px;
+}
+
+@layer components {
+  .logo-title {
+    font-family: Oxygen;
+    font-weight: 700;
+    transform: scaleY(0.9) scaleX(1.2);
+  }
 }

@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import type { Movie, MovieCredits } from 'lib/types';
 import { MovieApi } from 'lib/api';
 import { MoviePreview } from 'components/movie/MoviePreview';
+import { ParsedUrlQuery } from 'querystring';
 
 interface MoviePageProps {
   movie: Movie,
@@ -18,7 +19,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: true };
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+interface MoviePageParams extends ParsedUrlQuery {
+  id: string
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const params = context.params as MoviePageParams;
   const { id } = params;
   let movie: Movie | {} = {};
   let credits: MovieCredits | {} = {};
